@@ -60,3 +60,11 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 a.company{color:inherit;text-decoration:underline dotted;text-underline-offset:4px}
 a.company:hover{color:var(--accent)}
+.card{margin:0;width:220px;flex:none;background:#fff;color:#1c2733;border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,32,.15)}
+.card img{display:block;width:100%;height:auto}
+.card figcaption{display:flex;flex-direction:column;padding:.7rem .9rem;border-top:3px solid var(--accent);
+  font-size:.82rem;line-height:1.5}
+.card figcaption strong{color:#1f4e79;font-size:.95rem}
+.card figcaption span{color:#5b6b7c}
+.card figcaption a{color:#2f80c0;word-break:break-all}
