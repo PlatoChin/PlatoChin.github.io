@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAP MM 模組循環圖 | 秦海龍 Plato Chin</title>
+  <meta name="description" content="SAP MM 模組採購到付款(Procure to Pay)循環圖。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html">Plato Chin</a>
+    <nav>
+      <a href="index.html">← 回首頁</a>
+      <button id="theme-toggle" type="button" aria-label="切換深色模式">🌓</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-sm">
+      <h1>SAP MM 模組循環圖</h1>
+      <p class="lead">MM(Materials Management,物料管理)就像公司的「採購 + 倉庫總管」:從發現缺料開始,一路走到付款,庫存再回頭告訴你下一輪要補什麼。</p>
+    </section>
+
+    <section class="cycle">
+      <svg viewBox="0 0 800 580" role="img" aria-labelledby="cyc-t cyc-d">
+        <title id="cyc-t">SAP MM 採購循環圖</title>
+        <desc id="cyc-d">六個步驟依序為:需求產生、詢價與採購、收貨、發票驗證、付款、庫存管理,最後回到需求產生。</desc>
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+            <path d="M0 0L10 5L0 10z" fill="var(--accent)"/>
+          </marker>
+        </defs>
+
+        <g fill="none" stroke="var(--accent)" stroke-width="2.5" marker-mid="url(#arr)">
+          <path d="M400 90L486.5 140L573 190"/>
+          <path d="M573 190L573 290L573 390"/>
+          <path d="M573 390L486.5 440L400 490"/>
+          <path d="M400 490L313.5 440L227 390"/>
+          <path d="M227 390L227 290L227 190"/>
+          <path d="M227 190L313.5 140L400 90"/>
+        </g>
+
+        <g class="node">
+          <rect x="310" y="57" width="180" height="66" rx="12"/>
+          <text x="400" y="82" class="t1">① 需求產生</text>
+          <text x="400" y="105" class="t2">MRP / 請購單 PR</text>
+        </g>
+        <g class="node">
+          <rect x="483" y="157" width="180" height="66" rx="12"/>
+          <text x="573" y="182" class="t1">② 詢價與採購</text>
+          <text x="573" y="205" class="t2">RFQ / 採購單 PO</text>
+        </g>
+        <g class="node">
+          <rect x="483" y="357" width="180" height="66" rx="12"/>
+          <text x="573" y="382" class="t1">③ 收貨</text>
+          <text x="573" y="405" class="t2">進貨 GR (MIGO)</text>
+        </g>
+        <g class="node">
+          <rect x="310" y="457" width="180" height="66" rx="12"/>
+          <text x="400" y="482" class="t1">④ 發票驗證</text>
+          <text x="400" y="505" class="t2">IV 三方比對 (MIRO)</text>
+        </g>
+        <g class="node">
+          <rect x="137" y="357" width="180" height="66" rx="12"/>
+          <text x="227" y="382" class="t1">⑤ 付款</text>
+          <text x="227" y="405" class="t2">應付帳款 (FI)</text>
+        </g>
+        <g class="node">
+          <rect x="137" y="157" width="180" height="66" rx="12"/>
+          <text x="227" y="182" class="t1">⑥ 庫存管理</text>
+          <text x="227" y="205" class="t2">領料 / 調撥 / 盤點</text>
+        </g>
+
+        <text x="400" y="280" class="ctr1">Procure to Pay</text>
+        <text x="400" y="308" class="ctr2">採購到付款循環</text>
+      </svg>
+    </section>
+
+    <section>
+      <h2>六個步驟,白話版</h2>
+      <div class="cards">
+        <article><h3>① 需求產生</h3><p>系統發現庫存不夠(MRP 計算),或人員手動開請購單 PR:「我們缺料了!」</p></article>
+        <article><h3>② 詢價與採購</h3><p>跟供應商詢價 RFQ、比價,確認後開出採購單 PO,等於正式下訂單。</p></article>
+        <article><h3>③ 收貨</h3><p>貨到了,倉庫點收並做收貨 GR,庫存數量與金額即時增加。</p></article>
+        <article><h3>④ 發票驗證</h3><p>供應商寄來發票,系統做「訂單、收貨、發票」三方比對,對得起來才放行。</p></article>
+        <article><h3>⑤ 付款</h3><p>驗證通過的發票進入應付帳款,財務在到期日付款給供應商。</p></article>
+        <article><h3>⑥ 庫存管理</h3><p>物料領用、倉間調撥、定期盤點;庫存水位再回頭觸發下一輪需求,循環就接上了。</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> 秦海龍 Plato Chin</footer>
+  <script>
+    const root = document.documentElement;
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved) root.dataset.theme = saved;
+      else if (matchMedia("(prefers-color-scheme: dark)").matches) root.dataset.theme = "dark";
+    } catch (e) {}
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      const next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

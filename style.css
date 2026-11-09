@@ -60,3 +60,14 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 a.company{color:inherit;text-decoration:underline dotted;text-underline-offset:4px}
 a.company:hover{color:var(--accent)}
+a.avatar{text-decoration:none;transition:transform .2s,box-shadow .2s}
+a.avatar:hover,a.avatar:focus-visible{transform:scale(1.06);box-shadow:0 0 0 4px var(--accent)}
+.hero-sm{padding:3rem 0 1rem}
+.cycle{border-top:none;padding:1rem 0 2rem}
+.cycle svg{width:100%;height:auto;display:block}
+.cycle .node rect{fill:var(--surface);stroke:var(--primary);stroke-width:2}
+.cycle text{text-anchor:middle}
+.cycle .t1{fill:var(--primary);font-weight:700;font-size:17px}
+.cycle .t2{fill:var(--muted);font-size:13px}
+.cycle .ctr1{fill:var(--primary);font-weight:700;font-size:26px}
+.cycle .ctr2{fill:var(--muted);font-size:16px}
