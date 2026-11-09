@@ -29,6 +29,9 @@ h1 span{font-size:1.2rem;color:var(--muted);font-weight:400}
 .lead{max-width:34rem;color:var(--muted)}
 .badges span{display:inline-block;margin:.2rem .4rem .2rem 0;padding:.2rem .8rem;border:1px solid var(--accent);
   border-radius:99px;font-size:.85rem;color:var(--accent)}
+.badges a.badge-link{display:inline-block;margin:.2rem .4rem .2rem 0;padding:.2rem .8rem;border:1px solid var(--accent);
+  border-radius:99px;font-size:.85rem;color:var(--accent);text-decoration:none}
+.badges a.badge-link:hover{background:var(--accent);color:#fff}
 section{padding:2.5rem 0;border-top:1px solid var(--line)}
 h2{margin:0 0 1rem;color:var(--primary);font-size:1.6rem}
 .stats{display:flex;gap:1rem;flex-wrap:wrap;margin:1.5rem 0}
